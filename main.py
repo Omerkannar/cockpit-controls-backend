@@ -48,7 +48,7 @@ _CMDS_Panel_Data_List = [{"RWR_SWITCH": "True", "JMR_SWITCH": "True", "MWS_SWITC
 #
 # Interior Light Panel
 #
-_InteriorLight_Panel_Data_List = [{"NORMLTG_LIGHT": "True"}]
+_InteriorLight_Panel_Data_List = [{"NORMLTG_LIGHT": "center"}]
 
 #=======================================================================================================================
 # Data Definition
@@ -144,7 +144,6 @@ def getInteriorLightPanelData():
     print(_InteriorLight_Panel_Data_List[0])
     return jsonify(_InteriorLight_Panel_Data_List[0])
 
-78787878
 #=======================================================================================================================
 # setCMDSPanelData
 #=======================================================================================================================
