@@ -48,7 +48,7 @@ _CMDS_Panel_Data_List = [{"RWR_SWITCH": "True", "JMR_SWITCH": "True", "MWS_SWITC
 #
 # Interior Light Panel
 #
-_InteriorLight_Panel_Data_List = [{"NORMLTG_LIGHT": "center"}]
+_InteriorLight_Panel_Data_List = [{"NORMLTG_LIGHT": "center", "FLOOD_CONSOLES_LIGHT": "0"}]
 
 #=======================================================================================================================
 # Data Definition
@@ -77,6 +77,7 @@ class CMDS_List_Schema(Schema):
 
 class InteriorLight_Schema(Schema):
     NORMLTG_LIGHT = fields.Str()
+    FLOOD_CONSOLES_LIGHT = fields.Str()
 
 class InteriorLight_List_Schema(Schema):
     list = fields.List(fields.Nested(InteriorLight_Schema))
@@ -116,8 +117,10 @@ def setInteriorLightPanelData():
         request_json = request.get_json()
 
         NORMLTG_LIGHT_VALUE = request_json["NORMLTG_LIGHT"]
+        FLOOD_CONSOLES_LIGHT_VALUE = request_json["FLOOD_CONSOLES_LIGHT"]
 
         _InteriorLight_Panel_Data_List[0]["NORMLTG_LIGHT"] = NORMLTG_LIGHT_VALUE
+        _InteriorLight_Panel_Data_List[0]["FLOOD_CONSOLES_LIGHT"] = FLOOD_CONSOLES_LIGHT_VALUE
 
         print(request_json)
         print('finish -> setInteriorLightPanelData')
